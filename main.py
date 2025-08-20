@@ -1,4 +1,5 @@
 import sys
+import time
 
 if len(sys.argv)!=2:
         print("Usage: python3 main.py <path_to_book>")
@@ -21,11 +22,15 @@ def main():
     sorted_character_count = sorted_list(character_count)
     sorted_dict = dict(sorted_character_count)
 
-    print("============ BOOKBOT ============")
-    print(f"Analyzing book found at {book}...")
-    print("----------- Word Count ----------")
-    print(f'Found {word_count} total words')
-    print("--------- Character Count -------")
+    report = (
+        "============ BOOKBOT ============\n"
+        f"Analyzing book found at {book}...\n"
+        "----------- Word Count ----------\n"
+        f"Found {word_count} total words\n"
+        "--------- Character Count -------"
+    )
+    
+    print(report)
     for character in sorted_character_count:
         if character[0].isalpha():
             print(f'{character[0]}: {character[1]}')
